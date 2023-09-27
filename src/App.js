@@ -10,10 +10,10 @@ function App() {
 
 	return (
 	  	<div>
-			{<Step1/>}
-			{<Step2/>}
-			{<Step3/>}
-			{<Step4/>}
+			<Step1/>
+			<Step2/>
+			<Step3/>
+			<Step4/>
 	  	</div>
 	);
 }
