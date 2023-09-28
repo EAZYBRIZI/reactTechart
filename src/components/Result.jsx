@@ -8,8 +8,8 @@ function Result(props) {
             <h3>Результат рассчёта</h3>
 
             <div className="question">
-                <h2>{props.data.result === 'ok' ? 'Успешно' : 'Ошибка'}</h2>
-                <span className='success'>{props.data.message ? props.data.message : 'not work'}</span>
+                <h2>{props.response.result === 'ok' ? 'Успешно' : 'Ошибка'}</h2>
+                <span className='success'>{props.response.message ? props.response.message : 'not work'}</span>
             </div>
 
             <div className="buttons">
@@ -18,7 +18,7 @@ function Result(props) {
                         props.setCurrentStep(1);
                         
                     }}
-                >Отмена</button>
+                >Новый рассчёт</button>
             </div>
 
         </div>

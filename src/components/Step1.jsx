@@ -14,12 +14,18 @@ function Step1(props) {
                 <ul>
                     <li
                         onClick={() => 
-                            props.setRoom('1')
+                            props.setData({
+                                'room' : 1,
+                                'currentStep' : 1,
+                            })
                         }
                     > Жилой дом </li>
                     <li
                         onClick={() => 
-                            props.setRoom('2')   
+                            props.setData({
+                                'room' : 2,
+                                'currentStep' : 1,
+                            })   
                         }
                     > Гараж </li>
                 </ul>
@@ -28,15 +34,19 @@ function Step1(props) {
             <div className="buttons">
                 <button
                     onClick={() => {
-                        props.setCurrentStep(1);
+                        props.setData({
+                            'currentStep' : 1,
+                        });
                         // props.cancel();
                     }}
                 >Отмена</button>
                 <button
                     onClick={() => 
-                        props.setCurrentStep(props.room !== '' ? props.currentStep + 1 : props.currentStep)
+                        props.setData({
+                            'currentStep' : props.data.room !== '' ? props.data.currentStep + 1 : props.data.currentStep,
+                        })
                     }
-                    
+                    disabled={isNaN(props.data.room)}
                 >Далее</button>
             </div>
 

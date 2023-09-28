@@ -35,14 +35,18 @@ function Step4(props) {
         <div className="buttons">
             <button
                 onClick={() =>
-                props.setCurrentStep(1)
+                props.setData({
+                    'currentStep' : 1
+                })
             }
             >Отмена</button>
             <button
                 onClick={() => {
-                    props.setCurrentStep((props.lengthX, props.lengthY) !== '' ? props.currentStep + 1 : props.currentStep);
+                    props.setData({
+                        'currentStep' : (props.lengthX, props.lengthY) !== '' ? props.currentStep + 1 : props.currentStep,
+                    });
                     props.getResponse()
-                        .then(response => props.setData(response));
+                        .then(response => props.setResponse(response));
                 }}
             >Рассчитать</button>
         </div>

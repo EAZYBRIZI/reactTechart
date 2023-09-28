@@ -14,17 +14,17 @@ function Step3(props) {
             <ul>
                 <li
                     onClick={() => 
-                        props.setMaterial('1')
+                        props.setMaterial(1)
                     }
                 > Кирпич </li>
                 <li
                     onClick={() => 
-                        props.setMaterial('2')
+                        props.setMaterial(2)
                     }
                 > Шлакоблок </li>
                 <li
                     onClick={() => 
-                        props.setMaterial('3')
+                        props.setMaterial(3)
                     }
                 > Деревянный брус </li>
             </ul>
@@ -32,14 +32,20 @@ function Step3(props) {
 
         <div className="buttons">
             <button
-                onClick={() =>
-                props.setCurrentStep(1)
-            }
+                onClick={() => {
+                    props.setData({
+                        'currentStep' : 1,
+                    });
+                    // props.cancel();
+                }}
             >Отмена</button>
             <button
-                onClick={() => {
-                    props.setCurrentStep(props.material !== '' ? props.currentStep + 1 : props.currentStep);
-                }}
+                onClick={() => 
+                    props.setData({
+                        'currentStep' : props.data.room !== '' ? props.data.currentStep + 1 : props.data.currentStep,
+                    })
+                }
+                disabled={isNaN(props.material)}
             >Далее</button>
         </div>
 

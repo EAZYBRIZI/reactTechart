@@ -8,80 +8,86 @@ import Step4 from "./components/Step4";
 import Result from "./components/Result";
 
 function App() {
-	const [currentStep, setCurrentStep] = useState(1);
-	const [room, setRoom] = useState('');
-	const [floors, setFloors] = useState('1');
-	const [material, setMaterial] = useState('');
-	const [lengthX, setLengthX] = useState('1');
-    const [lengthY, setLengthY] = useState('1');
-	const [data, setData] = useState([]);
+	const [data, setData] = useState({
+		'currentStep' : 1,
+		'room' : undefined,
+	});
+	// const [room, setRoom] = useState();
+	const [floors, setFloors] = useState();
+	const [material, setMaterial] = useState();
+	const [lengthX, setLengthX] = useState(1);
+    const [lengthY, setLengthY] = useState(1);
+	const [response, setResponse] = useState([]);
 
 	const cancel = () => {
-		setRoom('');
-		setFloors('1');
-		setMaterial('');
-		setLengthX('1');
-		setLengthY('1');
+		// setRoom();
+		setFloors(1);
+		setMaterial();
+		setLengthX(1);
+		setLengthY(1);
 	};
 
+	console.log(data.room);
+
 	useEffect(() => {
-        if (currentStep === 1) {
+        if (data.currentStep === 1) {
             cancel();
         }
-    }, [currentStep]);
+    }, [data.currentStep]);
 
-	const getResponse = () => fetch('https://data.techart.ru/lab/json/?building='+room+'&height='+floors+'&material='+material+'&sizex='+lengthX+'&sizey='+lengthY, {
+	const getResponse = () => fetch('https://data.techart.ru/lab/json/?building='+data.room+'&height='+floors+'&material='+material+'&sizex='+lengthX+'&sizey='+lengthY, {
 		method: 'GET',
   	})
 	.then(response => { return response.json() });
 	
 	return (
 	  	<div>
-			{currentStep === 1 && 
-				<Step1 
-					currentStep={currentStep} 
-					setCurrentStep={setCurrentStep}
-					room={room}
-					setRoom={setRoom}
+			{data.currentStep === 1 && 
+				<Step1
+					data={data}
+					setData={setData}
+					// room={room}
+					// setRoom={setRoom}
 					cancel={cancel}
 				/>}
 
-			{(currentStep === 2 ) &&
+			{(data.currentStep === 2 /*&& room === 1*/ ) &&
 				<Step2
-					currentStep={currentStep}
-					setCurrentStep={setCurrentStep}
+					data={data}
+					setData={setData}
 					floors={floors}
 					setFloors={setFloors}
 				/>
 			}
 
-			{(currentStep === 3 ) &&
+			{(data.currentStep === 3 ) &&
 				<Step3
-					currentStep={currentStep}
-					setCurrentStep={setCurrentStep}
+					data={data}
+					setData={setData}
 					material={material}
 					setMaterial={setMaterial}
 				/>
 			}
 
-			{currentStep === 4 &&
+			{data.currentStep === 4 &&
 				<Step4
-					currentStep={currentStep}
-					setCurrentStep={setCurrentStep}
+					data={data}
+					setData={setData}
 					lengthX={lengthX}
 					lengthY={lengthY}
 					setLengthX={setLengthX}
 					setLengthY={setLengthY}
 					getResponse={getResponse}
-					data={data}
-					setData={setData}
+					response={response}
+					setResponse={setResponse}
 				/>
 			}
 
-			{currentStep === 5 &&
+			{data.currentStep === 5 &&
 				<Result
-					setCurrentStep={setCurrentStep}
 					data={data}
+					setData={setData}
+					response={response}
 				/>
 			}
 	  	</div>

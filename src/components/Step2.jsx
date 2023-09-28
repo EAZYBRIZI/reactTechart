@@ -23,12 +23,16 @@ function Step2(props) {
         <div className="buttons">
             <button
                 onClick={() =>
-                props.setCurrentStep(1)
+                props.setData({
+                    'currentStep' : 1
+                })
             }
             >Отмена</button>
             <button
                 onClick={() =>
-                    props.setCurrentStep(props.floors !== '' ? props.currentStep + 1 : props.currentStep)
+                    props.setData({
+                        'currentStep' : props.floors !== '' ? props.data.currentStep + 1 : props.data.currentStep,
+                    })
                 }
             >Далее</button>
         </div>
