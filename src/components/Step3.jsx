@@ -1,25 +1,49 @@
-function Step3() {
+import React from 'react';
+
+function Step3(props) {
+    // const [material, setMaterial] = useState('');
+
     return (
-         <div className="step step--step4">
-    
-          <h1>Калькулятор цены конструкции</h1>
-          <h3>Шаг 1</h3>
+        <div className="step step--step3">
 
-          <div className="question">
-              <h2>Материал стен:</h2>
-              <ul>
-                  <li> Кирпич </li>
-                  <li> Шлакоблок </li>
-                  <li> Деревянный брус </li>
-              </ul>
-          </div>
+        <h1>Калькулятор цены конструкции</h1>
+        <h3>Шаг {props.currentStep}</h3>
 
-          <div className="buttons">
-              <button>Отмена</button>
-              <button>Далее</button>
-          </div>
+        <div className="question">
+            <h2>Материал стен:</h2>
+            <ul>
+                <li
+                    onClick={() => 
+                        props.setMaterial('1')
+                    }
+                > Кирпич </li>
+                <li
+                    onClick={() => 
+                        props.setMaterial('2')
+                    }
+                > Шлакоблок </li>
+                <li
+                    onClick={() => 
+                        props.setMaterial('3')
+                    }
+                > Деревянный брус </li>
+            </ul>
+        </div>
 
-      </div>
+        <div className="buttons">
+            <button
+                onClick={() =>
+                props.setCurrentStep(1)
+            }
+            >Отмена</button>
+            <button
+                onClick={() => {
+                    props.setCurrentStep(props.material !== '' ? props.currentStep + 1 : props.currentStep);
+                }}
+            >Далее</button>
+        </div>
+
+    </div>
       
     );
 }
