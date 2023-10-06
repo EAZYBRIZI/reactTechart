@@ -1,0 +1,19 @@
+.root {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+}
+
+.rowId {
+    width: 30px;
+}
+
+.rowName {
+    width: 200px;
+    text-align: left;
+}
+
+.rowWebsite {
+    width: 150px;
+}

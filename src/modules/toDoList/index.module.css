@@ -1,0 +1,36 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    justify-content: center;
+}
+
+.topPanel {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sort {
+    display: flex;
+    gap: 110px;
+    margin-left: 70px;
+}
+
+.search {
+    position: relative;
+    height: auto;
+}
+
+.searchResult {
+    position: absolute;
+    max-height: 600px;
+    width: 100%;
+    background-color: rgb(224, 222, 222);
+    overflow-y:scroll;
+}
+
+.addButton {
+    display: flex;
+    justify-content: center;
+}

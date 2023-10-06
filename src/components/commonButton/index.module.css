@@ -1,0 +1,24 @@
+.root {
+    outline: 0;
+    border: 0;
+    padding: 7px 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.addButton {
+    background: green;
+}
+
+.deleteButton {
+    background: red;
+}
+
+.editButton {
+    background-color: blue;
+}
+
+.sortButton {
+    background: gold;
+    width: 130px;
+}

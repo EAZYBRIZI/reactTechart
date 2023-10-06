@@ -1,0 +1,10 @@
+.root {
+    width: 500px;
+    height: 650px;
+    border: 2px solid black;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 3 ;
+}

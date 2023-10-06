@@ -1,0 +1,32 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 40px;
+    height: 100%;
+}
+
+.inputs input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid black;
+    font-size: 18px;
+}
+
+.button {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.inputs .error {
+    border-bottom: 2px solid red;
+}

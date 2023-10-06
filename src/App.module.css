@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.App {
+    width: 750px;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    font-size: 30px;
+    margin-bottom: 40px;
+    border: 2px solid;
+}

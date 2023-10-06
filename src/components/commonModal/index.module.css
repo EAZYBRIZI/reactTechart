@@ -1,0 +1,46 @@
+.root {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.background {
+    position: absolute;
+    background: rgba(128, 128, 128, 0.7);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+.contentWrapper {
+    display: flex;
+    position: relative;
+    z-index: 2;
+    width: 650px;
+    height: 750px;
+    margin: 120px auto;
+    justify-content: center;
+    background-color: white;
+}
+
+.buttonWrapper {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.button {
+    font-size: 25px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: max(50px, 5%);
+}
